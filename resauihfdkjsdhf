@@ -1,0 +1,350 @@
+--[[
+
+ $$\        $$$$$$$$\   $$$$$$$$\   $$$$$$$ \       $$$$$$$$\
+ $$ |       $$   _$$ |  $$   _$$ |  $$   _$$ |      \___  $$ |
+ $$ |       $$  | $$ |  $$  / $$ |  $$  | $$ |          $$  /
+ $$ |       $$  | $$ |  $$$$$$$$ |  $$  | $$ |        $$  /
+ $$ |       $$  | $$ |  $$  __$$ |  $$  | $$ |      $$  /
+ $$$$$$$$|  $$$$$$$$ |  $$ |  $$ |  $$$$$$$ /       $$$$$$$$ |
+ \_______|  \________|  \__|  \__|  \______/        \________|
+
+]]--
+
+local LoadZ = loadstring(game:HttpGet('https://raw.githubusercontent.com/Rogue-Unblocked/LoadZ-UI/refs/heads/main/LoadZ%20UI'))()
+
+local Window = LoadZ:CreateWindow({
+   Name = "👑Load Z👑",
+   LoadingTitle = "Load Z",
+   LoadingSubtitle = "by Rogue",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "RoguesLoadZ"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Load Z | Key",
+      Subtitle = "Key In Discord Channel",
+      Note = "Private Key",
+      FileName = "LoadZkey", -- It is recommended to use something unique as other scripts using LoadZ may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like LoadZ to get the key from
+      Key = {"https://pastebin.com/raw/YSFpYW9q"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+LoadZ:Notify({
+    Title = "Script Executed",
+    Content = "Thanks for using Load Z gui",
+    Duration = 5,
+    Image = nil,
+    Actions = { -- Notification Buttons
+       Ignore = {
+          Name = "No Problem!",
+          Callback = function()
+          print("The user tapped No Problem!")
+       end
+    },
+ },
+ })
+
+local GunTab = Window:CreateTab("🔫Gun🔫", nil) -- Title, Image
+local GunSection = MainTab:CreateSection("Main")
+
+local Button = GunTab:CreateButton({
+   Name = "AimLock[E]",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Rogue-Unblocked/Pink-Dot/refs/heads/main/Pink%20Dot'))()
+})
+
+local Button = GunTab:CreateButton({
+   Name = "CamLock",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Rogue-Unblocked/Cam-Lock/refs/heads/main/Cam%20Lock'))()
+})
+
+local Button = GunTab:CreateButton({
+    Name = "Auto Reload"
+    Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Rogue-Unblocked/Auto-Reload/refs/heads/main/Auto%20Reload'))()
+})
+
+local PlayerTab = Window:CreateTab("🧑Player🧑", nil) -- Title, Image
+local PlayerSection = PlayerTab:CreateSection("Player")
+
+local Slider = PlayerTab:CreateSlider({
+   Name = "WalkSpeed Slider",
+   Range = {0, 200},
+   Increment = 1,
+   Suffix = "WalkSpeed",
+   CurrentValue = 16,
+   Flag = "LoadZspeed", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+
+local Slider = PlayerTab:CreateSlider({
+   Name = "JumpPower Slider",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "JumpPower",
+   CurrentValue = 50,
+   Flag = "LoadZjump", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
+   end,
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Fly[X]",
+   Callback = function()
+
+})
+
+local Button = PlayerTab:CreateButton({
+   Name = "Inf Jump[F]",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Rogue-Unblocked/Inf-Jump/refs/heads/main/Inf%20Jump'))()
+})
+
+local Button = PlayerTab:CreateButton({
+    Name = "Click TP",
+    Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Rogue-Unblocked/Click-TP/refs/heads/main/Click%20TP'))()
+})
+
+local EspTab = Window:CreateTab("Esp", nil) -- Title, Image
+local EspSection = EspTab:CreateSection("Esp")
+
+local Button = EspTab:CreateButton({
+   Name = "Esp",
+   Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Rogue-Unblocked/Esp/refs/heads/main/Esp'))()
+})
+
+local FpsTab = Window:CreateTab("Fps Unlock/Boost", nil) -- Title, Image
+local FpsSection = FpsTab:CreateSection("Main")
+
+local Button = FpsTab:CreateButton({
+    Name = "Potato Booster",
+    Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Rogue-Unblocked/Potato-Booster/refs/heads/main/Potato%20Booster'))()
+})
+
+local Button = FpsTab:CreateButton({
+    Name = "Fps Unlocker",
+    Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Rogue-Unblocked/Fps-Unlocker/refs/heads/main/Fps%20Unlocker'))()
+})
+
+local TeleportTab = Window:CreateTab("Teleport", nil) -- Title, Image
+local TeleportSection = TeleportTab:CreateSection("Main")
+
+local Button = TeleportTab:CreateButton({
+   Name = "💸Bank💸",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-436.293091, 22.9756889, -284.663605)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🍔Food Store🍔",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(299.333008, 49.2826653, -614.396179)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🌮Taco🌮",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(555.591248, 51.061409, -494.514923)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "⛽Gas Station⛽",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(590.96167, 49.0000458, -259.772461)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🚨Police Station🚨️",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-267.225189, 21.7999573, -113.573311)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🛌Da Furniture🛌",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-489.567169, 21.9392605, -99.804039)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🏀Basketball🏀",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-931.971558, 22.0998211, -481.859589)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🚲Bycicle🚲",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-825.61615, 21.9998245, -537.159973)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🍔Food Store 2🍔",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-336.987122, 23.6826477, -298.932709)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🔫Tyrones Gun Store🔫",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(482.312347, 48.0705032, -624.330505)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🔫Tyrones Gun Store 2🔫",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-582.699829, 8.31478119, -736.593994)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🎄Christmas Tree🎄",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(66.5427094, 139, -697.639526)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🛡Uphill Armor🛡",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(539.091553, 50.3202744, -637.574951)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🛡Downhill Armor🛡",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-604.207581, 10.3496914, -788.651001)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🏋️Gym🏋️",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-77.2380142, 22.7002907, -638.656982)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🏥Hospital🏥",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(103.044769, 22.7999954, -485.358582)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🔥Flame🔥",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-153.65274, 53.8106155, -96.95858)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "💎Vault💎",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-503.625549, 23.1576424, -283.936401)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🏏Bat Downhill🏏",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-83.1895905, 21.75, -285.608185)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🥊Boxing🥊",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-232.054153, 22.0577793, -1118.96875)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "✂Clips✂",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4.21504116, 21.75, -90.6753998)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🟩Greenscreen🟩",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-505.897461, 48.602375, -213.373596)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "👟Hood Kicks👟",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-223.948868, 21.8458023, -411.636627)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🧘Hoodfitness🧘",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-76.8536682, 22.7002907, -634.811951)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "😎Kool Klub😎",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-265.413391, 55.3804436, -454.11026)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🏞Playground🏞",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-230.296829, 22.1498718, -747.098389)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🤢Sewer🤢",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(103.128914, -26.7500305, -274.729767)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🚄Subway🚄",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-428.974976, -21.25, 44.8718376)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "👮Unjail👮️",
+   Callback = function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-271.151978, 21.75, -243.19165)
+   end,
+})
